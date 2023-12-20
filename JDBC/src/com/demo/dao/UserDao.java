@@ -15,4 +15,6 @@ public interface UserDao {
 
 	void removeByuname(String uname);
 
+	void modifyPwd(String uname, String pwd);
+
 }

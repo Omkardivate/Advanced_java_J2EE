@@ -47,7 +47,11 @@ public class TestUser {
 				service.deleteByUsernm(uname);
 				break;
 			case 5:  
-				//update pwd
+				System.out.print("Enter username to update pwd: ");
+				uname= sc.next();
+				System.out.print("Enter new pwd: ");
+				pwd= sc.next();
+				service.updatePwd(uname,pwd);
 				break;
 			case 6:  
 				System.out.println("🙏 Thank you 🙏");

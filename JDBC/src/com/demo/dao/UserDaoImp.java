@@ -12,7 +12,7 @@ import com.demo.beans.User;
 public class UserDaoImp implements UserDao{
 	
 	static Connection conn=null;
-	static PreparedStatement insert,seluser,seluname,deluser;
+	static PreparedStatement insert,seluser,seluname,deluser,selfinduser,udtpwd;
 	static {
 		try {
 			conn=DBUtil.getMyConnection();
@@ -20,6 +20,8 @@ public class UserDaoImp implements UserDao{
 			seluser=conn.prepareStatement("select * from userdata;");
 			seluname=conn.prepareStatement("select username from userdata;");
 			deluser=conn.prepareStatement("delete from userdata where username=?;");
+			selfinduser=conn.prepareStatement("select id from userdata where username like ? ;");
+			udtpwd= conn.prepareStatement("update userdata set password=? where id=? ;");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -73,6 +75,27 @@ public class UserDaoImp implements UserDao{
 			deluser.setString(1, uname);
 			deluser.executeUpdate();
 			System.out.println("Deleted successfully...");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void modifyPwd(String uname, String pwd) {
+		try {
+			int id=-1;
+			selfinduser.setString(1, uname);
+			ResultSet rs= selfinduser.executeQuery();
+			while(rs.next()) {
+				id= rs.getInt(1);
+			}
+			if(id!=-1) {
+				udtpwd.setInt(2, id);
+				udtpwd.setString(1, pwd);
+				id= udtpwd.executeUpdate();
+				System.out.println("updated successfully...");
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

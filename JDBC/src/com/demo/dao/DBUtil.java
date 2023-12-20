@@ -12,8 +12,8 @@ public class DBUtil {
 		if(conn==null) {
 			try {
 				DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-				String url="jdbc:mysql://192.168.10.150/dac20?useSSL=false";
-				conn=DriverManager.getConnection(url,"dac20","welcome");
+				String url="jdbc:mysql://localhost/practice?useSSL=false";
+				conn=DriverManager.getConnection(url,"root","welcome@om");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

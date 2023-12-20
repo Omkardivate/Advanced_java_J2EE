@@ -29,4 +29,9 @@ public class UserServiceImp implements UserService{
 		dao.removeByuname(uname);
 	}
 
+	@Override
+	public void updatePwd(String uname,String pwd) {
+		dao.modifyPwd(uname,pwd);
+	}
+
 }

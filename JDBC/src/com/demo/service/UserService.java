@@ -14,6 +14,8 @@ public interface UserService {
 
 	void deleteByUsernm(String uname);
 
+	void updatePwd(String uname,String pwd);
+
 	
 
 }
