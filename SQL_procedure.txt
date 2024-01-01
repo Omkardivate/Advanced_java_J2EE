@@ -1,0 +1,17 @@
+create table user(userid int auto_increment primary key,username varchar(20) not null unique,name varchar(30) not null,mobileno bigint not null unique,emailId varchar(30) not null unique,password varchar(20) not null);
+
+
+create table mess(messid  int auto_increment primary key,messname  varchar(30) not null,messownername  varchar(30) not null,password varchar(30) not null,mobile  bigint not null unique,emailid varchar(30) not null unique,rating float not null DEFAULT 0,messtime  varchar(20) not null ,state varchar(20) not null,city varchar(20) not null, landmark varchar(40) not null);
+
+
+create table dailymenu(messid int not null,menu varchar (20) not null,price float not null, foreign key(messid) references mess(messid));
+
+
+create table todaysmenu(messid int primary key,menu varchar (100) not null,price float not null,availability bool not null, foreign key(messid) references mess(messid));
+
+
+create table messplanned(messid int not null,duration int not null,messplan varchar(100) not null,charges float not null, foreign key(messid) references mess(messid));
+
+
+create table reviews(reviewid int unique auto_increment,userid int,messid int, rating int not null,review varchar(100),foreign key(userid) references user(userid),foreign key(messid) references mess(messid) , primary key(userid,messid));
+
