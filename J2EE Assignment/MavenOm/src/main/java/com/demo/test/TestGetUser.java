@@ -15,11 +15,11 @@ public class TestGetUser {
 		Session sess1= sf.openSession();
 		Transaction tr1= sess1.beginTransaction();
 		
-//		MyUser u= sess1.get(MyUser.class, 1);
-		MyUser u= sess1.load(MyUser.class, 1);
+		MyUser u= sess1.get(MyUser.class, 1);
+//		MyUser u= sess1.load(MyUser.class, 1);
 		
 		System.out.println("before");
-		System.out.println(u);
+		System.out.println(u.getUname());
 		System.out.println("after name");
 		
 		sess1.close();
