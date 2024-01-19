@@ -1,0 +1,31 @@
+steps:   Create war maven project
+
+1. Add Dependencies in pom.xml and build it
+
+2. generate deployment-descriptor ("web.xml") 
+   inside WEB-INF there will be web.xml gets generated in that add 'mapping' for servlet class 
+
+3. At down there is src/main/webapp create one file "data.properties" at level of WEB-INF
+
+4. In data.properties add DB information
+
+5. Inside WEB-INF, create "spring-servlet.xml" and add 4 beans for 'PropertyPlaceholderConfigurer',
+   'DriverManagerDataSource', 'JdbcTemplate', 'InternalResourceViewResolver'
+
+6. In WEB-INF, create one folder as "views"
+
+7. At upside create com.demo.model & create POJO classes
+
+8. create com.demo.dao & create interfaces, classes (use annotaions)
+
+9. create com.demo.service & create interfaces, classes (use annotaions)
+
+10. create com.demo.controller & create controller classes (use annotaions)
+
+11. For each ModelAndView,String of controller, create 'Jsp file' in views
+
+
+
+
+
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
